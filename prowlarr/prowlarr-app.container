@@ -1,0 +1,27 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=prowlarr-app
+Image=lscr.io/linuxserver/prowlarr:latest
+Pod=prowlarr.pod
+
+Volume=%h/Homelab/data/prowlarr/data/prowlarr-config:/config:z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:9696/ping || exit 1
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

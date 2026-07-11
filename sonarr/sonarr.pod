@@ -1,0 +1,6 @@
+[Pod]
+PodName=sonarr
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

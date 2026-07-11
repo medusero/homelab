@@ -1,0 +1,6 @@
+[Pod]
+PodName=shelfmark
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

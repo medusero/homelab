@@ -1,0 +1,29 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=jellyfin-app
+Image=lscr.io/linuxserver/jellyfin:latest
+Pod=jellyfin.pod
+
+Volume=%h/Homelab/data/jellyfin/data/jellyfin-config:/config:z
+Volume=/mnt/data/media:/media:z
+AddDevice=/dev/dri/renderD128:/dev/dri/renderD128
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:8096/health
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=6G
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=grimmory-mariadb
+
+[Install]
+WantedBy=default.target

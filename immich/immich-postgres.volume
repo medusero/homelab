@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=immich-postgres
+
+[Install]
+WantedBy=default.target

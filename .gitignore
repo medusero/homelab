@@ -1,0 +1,6 @@
+secrets/
+
+# Por si algún día se generan units derivados o cachés locales de Podman/systemd aquí.
+*.tmp
+*.bak
+*.swp

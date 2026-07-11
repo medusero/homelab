@@ -1,0 +1,19 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=immich-redis
+Image=docker.io/valkey/valkey:9
+Pod=immich.pod
+
+Volume=immich-redis.volume:/data
+DropCapability=all
+AddCapability=CAP_SETUID CAP_SETGID
+
+HealthCmd=valkey-cli ping || exit 1
+HealthInterval=10s
+HealthRetries=5
+
+[Service]
+MemoryMax=256M
+
+[Install]
+WantedBy=default.target

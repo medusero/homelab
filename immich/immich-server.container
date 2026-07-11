@@ -1,0 +1,41 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=immich-server
+Image=ghcr.io/immich-app/immich-server:release
+Pod=immich.pod
+
+User=1000:1000
+DropCapability=all
+
+Volume=/mnt/data/personal/immich:/data:z
+Volume=%h/Homelab/var/immich/thumbs:/data/thumbs:z
+Volume=%h/Homelab/var/immich/encoded-video:/data/encoded-video:z
+Volume=/etc/localtime:/etc/localtime:ro
+
+Environment=TZ=Europe/Madrid
+Environment=IMMICH_HOST=0.0.0.0
+Environment=IMMICH_PORT=2283
+Environment=DB_HOSTNAME=localhost
+Environment=DB_PORT=5432
+Environment=DB_USERNAME=postgres
+Environment=DB_DATABASE_NAME=immich
+Environment=REDIS_HOSTNAME=localhost
+Environment=REDIS_PORT=6379
+EnvironmentFile=%h/.config/containers/systemd/secrets/immich
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:2283/api/server/ping
+HealthInterval=30s
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Unit]
+After=immich-db.service immich-redis.service
+Requires=immich-db.service immich-redis.service
+
+[Service]
+MemoryMax=2G
+
+[Install]
+WantedBy=default.target

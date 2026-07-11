@@ -1,0 +1,6 @@
+[Pod]
+PodName=grimmory
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

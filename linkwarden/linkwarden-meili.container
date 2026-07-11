@@ -1,0 +1,21 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=linkwarden-meili
+Image=docker.io/getmeili/meilisearch:v1.12.8
+Pod=linkwarden.pod
+
+Volume=linkwarden-meili-data.volume:/meili_data
+DropCapability=all
+
+EnvironmentFile=%h/.config/containers/systemd/secrets/linkwarden
+
+HealthCmd=curl -X GET http://localhost:3000/health
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=1G
+
+[Install]
+WantedBy=default.target

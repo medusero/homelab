@@ -1,0 +1,6 @@
+[Pod]
+PodName=radarr
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,5 @@
+[Pod]
+PodName=immich
+
+[Install]
+WantedBy=default.target

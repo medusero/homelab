@@ -1,0 +1,30 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=sabnzbd
+Image=lscr.io/linuxserver/sabnzbd:latest
+Pod=sabnzbd.pod
+
+Volume=%h/Homelab/data/sabnzbd/data/sabnzbd-config:/config:z
+Volume=/mnt/data/media/downloads/usenet:/data/downloads/usenet:z
+Volume=%h/Homelab/downloads/usenet:/temp:z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+EnvironmentFile=%h/.config/containers/systemd/secrets/sabnzbd
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=/bin/sh -c 'curl -sf "http://localhost:8181/api?mode=status&apikey=$SABNZBD_APIKEY"'
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=1G
+
+[Install]
+WantedBy=default.target

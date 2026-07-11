@@ -1,0 +1,6 @@
+[Pod]
+PodName=prowlarr
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

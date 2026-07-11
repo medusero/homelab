@@ -1,0 +1,6 @@
+[Pod]
+PodName=jellyfin
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

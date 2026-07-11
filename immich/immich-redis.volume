@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=immich-redis
+
+[Install]
+WantedBy=default.target

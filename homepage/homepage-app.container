@@ -1,0 +1,25 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=homepage-app
+Image=ghcr.io/gethomepage/homepage:latest
+Pod=homepage.pod
+
+Volume=%h/Homelab/data/homepage/data/homepage-config:/app/config:z
+Volume=%h/Homelab/data/homepage/data/homepage-data:/app/public/images:z
+
+EnvironmentFile=%h/.config/containers/systemd/secrets/homepage
+
+DropCapability=all
+
+AutoUpdate=registry
+
+HealthCmd=wget --spider -q http://homepage:3000/api/healthcheck
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

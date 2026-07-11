@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=immich-model-cache
+
+[Install]
+WantedBy=default.target

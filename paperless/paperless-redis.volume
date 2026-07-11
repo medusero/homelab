@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=paperless-redis
+
+[Install]
+WantedBy=default.target

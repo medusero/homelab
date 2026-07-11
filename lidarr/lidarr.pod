@@ -1,0 +1,6 @@
+[Pod]
+PodName=lidarr
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

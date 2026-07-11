@@ -1,0 +1,7 @@
+[Pod]
+PodName=slskd
+Network=media-network.network
+PublishPort=50300:50300
+
+[Install]
+WantedBy=default.target

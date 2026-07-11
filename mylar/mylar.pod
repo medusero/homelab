@@ -1,0 +1,6 @@
+[Pod]
+PodName=mylar
+Network=media-network.network
+
+[Install]
+WantedBy=default.target

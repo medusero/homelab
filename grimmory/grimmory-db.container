@@ -1,0 +1,28 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=grimmory-db
+Image=lscr.io/linuxserver/mariadb:11.4.12
+Pod=grimmory.pod
+
+Volume=grimmory-mariadb.volume:/config
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+EnvironmentFile=%h/.config/containers/systemd/secrets/grimmory-db
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+HealthCmd=mariadb-admin ping -h localhost
+HealthInterval=10s
+HealthRetries=5
+
+[Unit]
+After=grimmory.pod
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,28 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=shelfmark-app
+Image=ghcr.io/calibrain/shelfmark:latest
+Pod=shelfmark.pod
+
+Volume=%h/Homelab/data/shelfmark/data/shelfmark-config:/config:z
+Volume=%h/Homelab/downloads/bookdrop:/books:z
+Volume=/mnt/data/media/downloads/usenet:/data/downloads/usenet:z
+
+Environment=USER_ID=1000
+Environment=GROUP_ID=1000
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:8084/api/health
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

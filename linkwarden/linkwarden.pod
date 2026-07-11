@@ -1,0 +1,5 @@
+[Pod]
+PodName=linkwarden
+
+[Install]
+WantedBy=default.target

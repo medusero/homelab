@@ -1,0 +1,24 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=miniflux-db
+Image=docker.io/library/postgres:15-alpine
+Pod=miniflux.pod
+
+Volume=miniflux-postgres.volume:/var/lib/postgresql/data
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+Environment=POSTGRES_USER=miniflux
+Environment=POSTGRES_DB=miniflux
+EnvironmentFile=%h/.config/containers/systemd/secrets/miniflux
+
+HealthCmd=pg_isready -U miniflux -d miniflux
+HealthInterval=10s
+HealthRetries=5
+
+AutoUpdate=registry
+
+[Service]
+MemoryMax=256M
+
+[Install]
+WantedBy=default.target

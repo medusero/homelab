@@ -1,0 +1,28 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=syncthing-app
+Image=lscr.io/linuxserver/syncthing:latest
+Pod=syncthing.pod
+
+Volume=%h/Homelab/data/syncthing/data/syncthing-config:/config:z
+Volume=/mnt/data/personal/syncthing:/data
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:8384/rest/noauth/health
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target

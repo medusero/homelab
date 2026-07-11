@@ -1,0 +1,28 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=mylar-app
+Image=lscr.io/linuxserver/mylar3:latest
+Pod=mylar.pod
+
+Volume=%h/Homelab/data/mylar/data/mylar-config:/config:z
+Volume=/mnt/data/media:/data:z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://localhost:8090/ || exit 1
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=512M
+
+[Install]
+WantedBy=default.target
