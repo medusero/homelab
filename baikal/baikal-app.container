@@ -7,7 +7,7 @@ Pod=baikal.pod
 Volume=%h/Homelab/data/baikal/data/baikal-config:/var/www/baikal/config:z
 Volume=%h/Homelab/data/baikal/data/baikal-data:/var/www/baikal/Specific:z
 
-EnvironmentFile=%h/.config/containers/systemd/secrets/baikal
+EnvironmentFile=%h/Homelab/secrets/baikal
 
 DropCapability=all
 AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID CAP_NET_BIND_SERVICE

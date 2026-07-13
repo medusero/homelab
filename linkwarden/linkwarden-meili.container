@@ -7,7 +7,7 @@ Pod=linkwarden.pod
 Volume=linkwarden-meili-data.volume:/meili_data
 DropCapability=all
 
-EnvironmentFile=%h/.config/containers/systemd/secrets/linkwarden
+EnvironmentFile=%h/Homelab/secrets/linkwarden
 
 HealthCmd=curl -X GET http://localhost:3000/health
 HealthInterval=1m

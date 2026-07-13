@@ -7,7 +7,7 @@ Pod=homepage.pod
 Volume=%h/Homelab/data/homepage/data/homepage-config:/app/config:z
 Volume=%h/Homelab/data/homepage/data/homepage-data:/app/public/images:z
 
-EnvironmentFile=%h/.config/containers/systemd/secrets/homepage
+EnvironmentFile=%h/Homelab/secrets/homepage
 
 DropCapability=all
 

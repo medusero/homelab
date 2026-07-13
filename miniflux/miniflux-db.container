@@ -9,7 +9,7 @@ DropCapability=all
 AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
 Environment=POSTGRES_USER=miniflux
 Environment=POSTGRES_DB=miniflux
-EnvironmentFile=%h/.config/containers/systemd/secrets/miniflux
+EnvironmentFile=%h/Homelab/secrets/miniflux
 
 HealthCmd=pg_isready -U miniflux -d miniflux
 HealthInterval=10s

@@ -5,7 +5,7 @@ Image=ghcr.io/linkwarden/linkwarden:latest
 Pod=linkwarden.pod
 
 Volume=%h/Homelab/data/linkwarden/data/linkwarden-config:/data/data:z
-EnvironmentFile=%h/.config/containers/systemd/secrets/linkwarden
+EnvironmentFile=%h/Homelab/secrets/linkwarden
 
 DropCapability=all
 

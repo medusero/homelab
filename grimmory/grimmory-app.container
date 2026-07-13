@@ -12,7 +12,7 @@ Environment=USER_ID=1000
 Environment=GROUP_ID=1000
 Environment=TZ=Europe/Madrid
 Environment=DATABASE_URL=jdbc:mariadb://localhost:3306/grimmory
-EnvironmentFile=%h/.config/containers/systemd/secrets/grimmory-db
+EnvironmentFile=%h/Homelab/secrets/grimmory-db
 Environment=DATABASE_USERNAME=grimmory
 Environment=API_DOCS_ENABLED=false
 Environment=DISK_TYPE=LOCAL

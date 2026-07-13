@@ -4,7 +4,7 @@ ContainerName=miniflux-app
 Image=docker.io/miniflux/miniflux:latest
 Pod=miniflux.pod
 
-EnvironmentFile=%h/.config/containers/systemd/secrets/miniflux
+EnvironmentFile=%h/Homelab/secrets/miniflux
 Environment=RUN_MIGRATIONS=1
 Environment=CREATE_ADMIN=1
 Environment=ADMIN_USERNAME=admin

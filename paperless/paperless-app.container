@@ -15,7 +15,7 @@ Volume=/etc/localtime:/etc/localtime:ro
 Environment=TZ=Europe/Madrid
 Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
 Environment=PAPERLESS_OCR_LANGUAGE=spa
-EnvironmentFile=%h/.config/containers/systemd/secrets/paperless
+EnvironmentFile=%h/Homelab/secrets/paperless
 Environment=PAPERLESS_REDIS=redis://localhost:6379/0
 
 DropCapability=all
