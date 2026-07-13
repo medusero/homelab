@@ -1,8 +1,8 @@
-# Homelab doméstico en cómodos Quadlets
+# Homelab doméstico en cómodos quadlets
 
 > THIS IS MY ~~RIFLE~~ HOMELAB. THERE ARE MANY LIKE IT (ON REDDIT) BUT THIS ONE’S MINE
 
-Este repositorio contiene el esqueleto de mi pequeño *homelab*. Está construido sobre Quadlets de Podman, en modo *rootless*. El acceso externo corre a cuenta de [Tailscale](https://tailscale.com).
+Este repositorio contiene el esqueleto de mi pequeño *homelab*. Está construido sobre quadlets de Podman, en modo *rootless*. El acceso externo corre a cuenta de [Tailscale](https://tailscale.com).
 
 ## Disclaimer
 Llevo años en esto del auto-alojamiento y el *homelab*, y siempre lo he mantenido desde contenedores Docker y sin más ayuda que documentación, tutoriales y mucha prueba/error, pero cuando migré a Podman se presentaron una serie de inconvenientes que me hizo recurrir a la ayuda de un agente IA.
@@ -10,10 +10,9 @@ Estos obstáculos fueron principalmente: hacer funcionar los sidecares Tailscale
 Si esa ayuda te supone un problema, esto probablemente no sea para ti.
 
 ## Estructura
-Este repositorio refleja el contenido de `$HOME/.config/containers/systemd`, con todos sus Quadlets agrupados por directorios más un directorio llamado `secrets` para variables de entorno sensibles, y que no está aquí porque obviamente está excluido de Git. El archivo `media-network.network`, en la raíz, declara la red de Podman que usan los *arr y compañía.
+Este repositorio refleja el contenido de `$HOME/.config/containers/systemd`, con todos sus quadlets agrupados por directorios. El archivo `media-network.network`, en la raíz, declara la red de Podman que usan los *arr y compañía.
 
-Aparte de esto mi *homelab* reside también en `$HOME/Homelab`. Dentro de ahí la mayoría de los datos persistentes de los contenedores reside en la ruta `data/<quadlet-dir>/data`, con nombres de volúmenes que siguen la pauta `app-config` o `app-data`.
-
+Aparte de esto mi *homelab* reside también en `$HOME/Homelab`. Dentro de ahí la mayoría de los datos persistentes de los contenedores reside en la ruta `data/<quadlet-dir>/data`, con nombres de volúmenes que siguen la pauta `app-config` o `app-data`. En `$HOME/Homelab` se encuentra también un directorio llamado `secrets` para variables de entorno sensibles y referenciado por varios quadlets.
 Las excepciones son:
 - Los volúmenes de las bases de datos (Postgres, MariaDB, Redis...) o similares, que utilizan volúmenes nativos de Podman.
 - Los volúmenes y configuraciones de Tailscale, que están en `data/<quadlet-dir>/tailscale-state`, más el archivo `tailscale-serve.json` en la raíz de `data/<quadlet-dir>`.
@@ -27,6 +26,9 @@ Las excepciones son:
 │       │   └── quadlet-data
 │       ├── tailscale-serve.json
 │       └── tailscale-state
+├── secrets
+│   ├── quadlet-secret
+│   └── quadlet-db-secret
 └── var
     └── quadlet-dir
         └── quadlet-data
@@ -34,10 +36,10 @@ Las excepciones son:
 
 ## Tailscale como único acceso externo
 
-En este entorno todo el acceso externo se hace a través de Tailscale, con el TLS incluido accediendo desde url tipo `https://service.tailnet-name.ts.net`. No hay puertos abiertos en el enrutador, ni *proxy* inverso. Cada Quadlet incluye un *pod* para que Tailscale actúe como sidecar.
+En este entorno todo el acceso externo se hace a través de Tailscale, con el TLS incluido accediendo desde url tipo `https://service.tailnet-name.ts.net`. No hay puertos abiertos en el enrutador, ni *proxy* inverso. Cada quadlet incluye un *pod* para que Tailscale actúe como sidecar.
 
 
-## Cómo utilizar uno o varios Quadlets de este repo
+## Cómo utilizar uno o varios quadlets de este repo
 Obviamente, necesitas un servidor Linux con Podman instalado y activado. También una cuenta de Tailscale (gratuita).
 Mucho cuidado con las rutas para archivos multimedia o personales (películas para Radarr o fotografíás para Immich). Las rutas en los quadlets de aquí son las de mi entorno, y deben ser adaptadas con cuidado.
 Los pasos:
