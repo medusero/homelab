@@ -1,0 +1,21 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=karakeep-app
+Image=ghcr.io/karakeep-app/karakeep:latest
+Pod=karakeep.pod
+
+Volume=%h/Homelab/data/karakeep/data/karakeep-config:/data:z
+EnvironmentFile=%h/Homelab/secrets/karakeep
+
+DropCapability=all
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://karakeep:3000
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=512M
+
+[Install]
+WantedBy=default.target

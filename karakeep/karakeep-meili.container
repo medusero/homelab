@@ -1,0 +1,20 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=karakeep-meili
+Image=docker.io/getmeili/meilisearch:v1.41.0
+Pod=karakeep.pod
+
+Volume=karakeep-meili-data.volume:/meili_data
+DropCapability=all
+
+EnvironmentFile=%h/Homelab/secrets/karakeep
+Environment=MEILI_NO_ANALYTICS="true"
+
+HealthCmd=curl -X GET http://127.0.0.1:7700/health
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=1G
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=karakeep-meili-data
+
+[Install]
+WantedBy=default.target

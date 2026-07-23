@@ -1,0 +1,25 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=papra-app
+Image=ghcr.io/papra-hq/papra:latest
+Pod=papra.pod
+
+Volume=%h/Homelab/data/papra/data/papra-config:/app/app-data:z
+
+#Environment=DATABASE_URL=file:/app/data/db/db.sqlite
+#Environment=DOCUMENT_STORAGE_FILESYSTEM_ROOT=/app/data/documents
+
+EnvironmentFile=%h/Homelab/secrets/papra
+
+DropCapability=all
+
+AutoUpdate=registry
+
+HealthCmd=node -e "require('http').get('http://papra:1221',r=>{process.exit(r.statusCode<500?0:1)}).on('error',()=>process.exit(1))"
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=512M
+
+[Install]
+WantedBy=default.target

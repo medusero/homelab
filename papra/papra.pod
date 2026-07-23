@@ -1,0 +1,6 @@
+[Pod]
+PodName=papra
+PodmanArgs=--dns=100.100.100.100 --dns=1.1.1.1
+
+[Install]
+WantedBy=default.target

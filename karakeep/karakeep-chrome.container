@@ -1,0 +1,19 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=karakeep-chrome
+Image=gcr.io/zenika-hub/alpine-chrome:124
+Pod=karakeep.pod
+Exec=--no-sandbox --disable-gpu --disable-dev-shm-usage --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 --hide-scrollbars --disable-blink-features=AutomationControlled --window-size=1440,900
+
+DropCapability=all
+
+EnvironmentFile=%h/Homelab/secrets/karakeep
+
+HealthCmd=wget --spider -q http://127.0.0.1:9222
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=1G
+
+[Install]
+WantedBy=default.target
