@@ -15,27 +15,25 @@ Volume=/etc/localtime:/etc/localtime:ro
 Environment=TZ=Europe/Madrid
 Environment=IMMICH_HOST=0.0.0.0
 Environment=IMMICH_PORT=2283
-Environment=DB_HOSTNAME=localhost
+Environment=DB_HOSTNAME=127.0.0.1
 Environment=DB_PORT=5432
 Environment=DB_USERNAME=postgres
 Environment=DB_DATABASE_NAME=immich
-Environment=REDIS_HOSTNAME=localhost
+Environment=REDIS_HOSTNAME=127.0.0.1
 Environment=REDIS_PORT=6379
 EnvironmentFile=%h/Homelab/secrets/immich
 
 AutoUpdate=registry
 
-HealthCmd=curl -sf http://localhost:2283/api/server/ping
+HealthCmd=curl -sf http://127.0.0.1:2283/api/server/ping
 HealthInterval=30s
 HealthRetries=3
 HealthStartPeriod=30s
+Memory=2G
 
 [Unit]
 After=immich-db.service immich-redis.service
 Requires=immich-db.service immich-redis.service
-
-[Service]
-MemoryMax=2G
 
 [Install]
 WantedBy=default.target

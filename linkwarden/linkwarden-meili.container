@@ -9,13 +9,11 @@ DropCapability=all
 
 EnvironmentFile=%h/Homelab/secrets/linkwarden
 
-HealthCmd=curl -X GET http://localhost:3000/health
+HealthCmd=curl -X GET http://127.0.0.1:7700/health
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
-
-[Service]
-MemoryMax=1G
+Memory=1G
 
 [Install]
 WantedBy=default.target

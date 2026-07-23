@@ -17,13 +17,11 @@ DropCapability=all
 
 AutoUpdate=registry
 
-HealthCmd=bash -c "exec 3<>/dev/tcp/localhost/3003 2>/dev/null && echo -e "GET /ping HTTP/1.0\r\nHost: localhost\r\n\r\n" >&3 && read -r line <&3 && echo "$line""
+HealthCmd=bash -c "exec 3<>/dev/tcp/127.0.0.1/3003 2>/dev/null && echo -e "GET /ping HTTP/1.0\r\nHost: 127.0.0.1\r\n\r\n" >&3 && read -r line <&3 && echo "$line""
 HealthInterval=30s
 HealthRetries=3
 HealthStartPeriod=30s
-
-[Service]
-MemoryMax=1G
+Memory=8G
 
 [Install]
 WantedBy=default.target

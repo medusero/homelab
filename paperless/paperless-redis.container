@@ -11,9 +11,7 @@ AddCapability=CAP_SETUID CAP_SETGID
 HealthCmd=redis-cli ping
 HealthInterval=10s
 HealthRetries=5
-
-[Service]
-MemoryMax=256M
+Memory=256M
 
 [Install]
 WantedBy=default.target

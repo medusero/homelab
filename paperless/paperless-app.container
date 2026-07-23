@@ -16,24 +16,22 @@ Environment=TZ=Europe/Madrid
 Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
 Environment=PAPERLESS_OCR_LANGUAGE=spa
 EnvironmentFile=%h/Homelab/secrets/paperless
-Environment=PAPERLESS_REDIS=redis://localhost:6379/0
+Environment=PAPERLESS_REDIS=redis://127.0.0.1:6379/0
 
 DropCapability=all
 AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
 
 AutoUpdate=registry
 
-HealthCmd=curl -sf http://localhost:8000/
+HealthCmd=curl -sf http://127.0.0.1:8000/
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
+Memory=1G
 
 [Unit]
 After=paperless-redis.service
 Requires=paperless-redis.service
-
-[Service]
-MemoryMax=1G
 
 [Install]
 WantedBy=default.target

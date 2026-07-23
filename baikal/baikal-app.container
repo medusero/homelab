@@ -14,13 +14,11 @@ AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID CAP_NE
 
 AutoUpdate=registry
 
-HealthCmd=curl -sf http://localhost:80/
+HealthCmd=curl -sf http://127.0.0.1:80/
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
-
-[Service]
-MemoryMax=512M
+Memory=512M
 
 [Install]
 WantedBy=default.target

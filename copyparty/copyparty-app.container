@@ -11,13 +11,11 @@ DropCapability=all
 
 AutoUpdate=registry
 
-HealthCmd=wget -q -O /dev/null --timeout=3 http://localhost:3923/
+HealthCmd=wget -q -O /dev/null --timeout=3 http://127.0.0.1:3923/
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
-
-[Service]
-MemoryMax=512M
+Memory=512M
 
 [Install]
 WantedBy=default.target

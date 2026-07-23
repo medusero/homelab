@@ -16,9 +16,7 @@ EnvironmentFile=%h/Homelab/secrets/immich
 HealthCmd=pg_isready -d immich -U postgres
 HealthInterval=10s
 HealthRetries=5
-
-[Service]
-MemoryMax=512M
+Memory=512M
 
 [Install]
 WantedBy=default.target

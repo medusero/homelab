@@ -17,13 +17,11 @@ HealthCmd=/usr/bin/miniflux -healthcheck auto
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
+Memory=512M
 
 [Unit]
 After=miniflux-db.service
 Requires=miniflux-db.service
-
-[Service]
-MemoryMax=512M
 
 [Install]
 WantedBy=default.target

@@ -11,7 +11,7 @@ Volume=%h/Homelab/downloads/bookdrop:/bookdrop:z
 Environment=USER_ID=1000
 Environment=GROUP_ID=1000
 Environment=TZ=Europe/Madrid
-Environment=DATABASE_URL=jdbc:mariadb://localhost:3306/grimmory
+Environment=DATABASE_URL=jdbc:mariadb://127.0.0.1:3306/grimmory
 EnvironmentFile=%h/Homelab/secrets/grimmory-db
 Environment=DATABASE_USERNAME=grimmory
 Environment=API_DOCS_ENABLED=false
@@ -22,17 +22,15 @@ AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
 
 AutoUpdate=registry
 
-HealthCmd=wget -q -O - http://localhost:6060/api/v1/healthcheck
+HealthCmd=wget -q -O - http://127.0.0.1:6060/api/v1/healthcheck
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
+Memory=1G
 
 [Unit]
 After=grimmory-db.service
 Requires=grimmory-db.service
-
-[Service]
-MemoryMax=1G
 
 [Install]
 WantedBy=default.target

@@ -16,9 +16,7 @@ HealthInterval=10s
 HealthRetries=5
 
 AutoUpdate=registry
-
-[Service]
-MemoryMax=256M
+Memory=256M
 
 [Install]
 WantedBy=default.target

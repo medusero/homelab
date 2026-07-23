@@ -17,9 +17,7 @@ HealthCmd=wget --spider -q http://homepage:3000/api/healthcheck
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
-
-[Service]
-MemoryMax=512M
+Memory=512M
 
 [Install]
 WantedBy=default.target
