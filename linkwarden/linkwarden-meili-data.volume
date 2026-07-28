@@ -1,5 +1,0 @@
-[Volume]
-VolumeName=linkwarden-meili-data
-
-[Install]
-WantedBy=default.target

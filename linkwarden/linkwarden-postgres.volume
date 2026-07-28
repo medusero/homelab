@@ -1,5 +1,0 @@
-[Volume]
-VolumeName=linkwarden-postgres
-
-[Install]
-WantedBy=default.target
