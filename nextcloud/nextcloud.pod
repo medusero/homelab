@@ -1,0 +1,5 @@
+[Pod]
+PodName=nextcloud
+
+[Install]
+WantedBy=default.target

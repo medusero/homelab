@@ -1,0 +1,32 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=nextcloud-app
+Image=lscr.io/linuxserver/nextcloud:latest
+Pod=nextcloud.pod
+
+Volume=%h/Homelab/data/nextcloud/data/nextcloud-config:/config:z
+Volume=/mnt/data/personal/nextcloud:/data:z
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+Environment=DATABASE_URL=jdbc:mariadb://127.0.0.1:3306/nextcloud
+EnvironmentFile=%h/Homelab/secrets/nextcloud
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID CAP_NET_BIND_SERVICE
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://127.0.0.1:443/ping || exit 1
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=4G
+
+[Unit]
+After=nextcloud-db.service
+Requires=nextcloud-db.service
+
+[Install]
+WantedBy=default.target

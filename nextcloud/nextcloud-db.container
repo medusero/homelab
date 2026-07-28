@@ -1,0 +1,26 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=nextcloud-db
+Image=lscr.io/linuxserver/mariadb:11.4.12
+Pod=nextcloud.pod
+
+Volume=nextcloud-mariadb.volume:/config
+
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=Europe/Madrid
+EnvironmentFile=%h/Homelab/secrets/nextcloud
+
+DropCapability=all
+AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
+
+HealthCmd=mariadb-admin ping -h localhost
+HealthInterval=10s
+HealthRetries=5
+Memory=512M
+
+[Unit]
+After=nextcloud.pod
+
+[Install]
+WantedBy=default.target
