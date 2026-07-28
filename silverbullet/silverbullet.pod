@@ -1,0 +1,5 @@
+[Pod]
+PodName=silverbullet
+
+[Install]
+WantedBy=default.target
