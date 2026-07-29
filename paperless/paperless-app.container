@@ -4,8 +4,6 @@ ContainerName=paperless-app
 Image=ghcr.io/paperless-ngx/paperless-ngx:latest
 Pod=paperless.pod
 
-
-
 Volume=%h/Homelab/data/paperless/data/paperless-config:/usr/src/paperless/data:z
 Volume=/mnt/data/personal/paperless/media:/usr/src/paperless/media
 Volume=/mnt/data/personal/paperless/export:/usr/src/paperless/export
