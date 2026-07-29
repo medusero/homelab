@@ -1,5 +1,0 @@
-[Pod]
-PodName=baikal
-
-[Install]
-WantedBy=default.target
