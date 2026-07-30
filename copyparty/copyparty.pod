@@ -1,5 +1,0 @@
-[Pod]
-PodName=copyparty
-
-[Install]
-WantedBy=default.target
