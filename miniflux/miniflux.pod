@@ -1,5 +1,0 @@
-[Pod]
-PodName=miniflux
-
-[Install]
-WantedBy=default.target
