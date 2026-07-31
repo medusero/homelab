@@ -1,0 +1,8 @@
+[Pod]
+PodName=mularr
+PublishPort=4662:4662
+PublishPort=4672:4672/udp
+PublishPort=8940:8940
+
+[Install]
+WantedBy=default.target
