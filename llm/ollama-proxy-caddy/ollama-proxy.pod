@@ -1,0 +1,6 @@
+[Pod]
+PodName=ollama-proxy
+Network=host
+
+[Install]
+WantedBy=default.target
