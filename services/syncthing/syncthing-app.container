@@ -5,7 +5,7 @@ Image=lscr.io/linuxserver/syncthing:latest
 Pod=syncthing.pod
 
 Volume=%h/Homelab/data/syncthing/data/syncthing-config:/config:z
-Volume=/mnt/data/personal/syncthing:/data
+Volume=/mnt/data/personal/syncthing:/data:z
 
 Environment=PUID=1000
 Environment=PGID=1000

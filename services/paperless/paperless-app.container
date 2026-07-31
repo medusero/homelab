@@ -5,9 +5,9 @@ Image=ghcr.io/paperless-ngx/paperless-ngx:latest
 Pod=paperless.pod
 
 Volume=%h/Homelab/data/paperless/data/paperless-config:/usr/src/paperless/data:z
-Volume=/mnt/data/personal/paperless/media:/usr/src/paperless/media
-Volume=/mnt/data/personal/paperless/export:/usr/src/paperless/export
-Volume=/mnt/data/personal/paperless/consume:/usr/src/paperless/consume
+Volume=/mnt/data/personal/paperless/media:/usr/src/paperless/media:z
+Volume=/mnt/data/personal/paperless/export:/usr/src/paperless/export:z
+Volume=/mnt/data/personal/paperless/consume:/usr/src/paperless/consume:z
 Volume=/etc/localtime:/etc/localtime:ro
 
 Environment=TZ=Europe/Madrid
