@@ -16,6 +16,7 @@ Volume=/mnt/data/downloads/temp/soulseek:/incomplete:z
 Environment=TZ=Europe/Madrid
 Environment=SLSKD_SHARED_DIR=/music;/books
 Environment=SLSKD_DOWNLOADS_DIR=/data/downloads/soulseek
+EnvironmentFile=%h/Homelab/secrets/slskd
 
 AutoUpdate=registry
 
