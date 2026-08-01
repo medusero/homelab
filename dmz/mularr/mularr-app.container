@@ -10,6 +10,9 @@ DropCapability=all
 Volume=%h/Homelab/data/mularr/data/mularr-config:/app/data:z
 Volume=/mnt/data/downloads/amule:/data/downloads/amule:z
 Volume=/mnt/data/downloads/temp/amule:/incomplete:z
+Volume=/mnt/data/share/music:/music:ro
+Volume=/mnt/data/share/books:/books:ro
+Volume=/mnt/data/share/movies:/movies:ro
 
 Environment=TZ=Europe/Madrid
 Environment=AMULE_INCOMING_DIR=/data/downloads/amule
