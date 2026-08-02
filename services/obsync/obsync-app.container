@@ -1,0 +1,23 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=obsync-app
+Image=docker.io/library/couchdb:3.4
+Pod=obsync.pod
+User=5984:5984
+
+Volume=%h/Homelab/data/obsync/data/couchdb-data:/opt/couchdb/data:z
+Volume=%h/Homelab/data/obsync/data/couchdb-etc:/opt/couchdb/etc/local.d:z
+
+EnvironmentFile=%h/Homelab/secrets/obsync
+Environment=TZ=Europe/Madrid
+
+HealthCmd=curl -sf http://127.0.0.1:5984/_up
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+
+[Service]
+MemoryMax=256M
+
+[Install]
+WantedBy=default.target
