@@ -28,6 +28,12 @@ HealthStartPeriod=30s
 Memory=512M
 
 [Service]
+# Auto-reparación: amuled se niega a iniciar si amule.conf no tiene seccióm [EsternalConnect],
+# y el entrypoint de la imagen solo regenera amule.conf cuando no existe,
+# no cuando existe pero está vacío (lo que puede suceder por diversos motivos).
+# Aquí añado una orden que borra amule.conf si está vacío antes de arrancar,
+# forzando al entrypoint del contenedor a regenerarlo correctamente.
+ExecStartPre=-/bin/sh -c 'f=%h/Homelab/data/mularr/data/mularr-config/amule/amule.conf; [ -s "$f" ] || rm -f "$f"'
 Restart=on-failure
 RestartSec=10
 TimeoutStartSec=180
