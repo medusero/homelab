@@ -22,12 +22,15 @@ HealthCmd=curl -sf http://127.0.0.1:8080/ || exit 1
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=45s
+MemoryMax=4G
 
 [Unit]
 After=network-online.target
 
 [Service]
-MemoryMax=4G
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
 
 [Install]
 WantedBy=default.target
