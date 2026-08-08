@@ -8,7 +8,6 @@ Volume=%h/Homelab/data/paperless/data/paperless-config:/usr/src/paperless/data:z
 Volume=/mnt/data/personal/paperless/media:/usr/src/paperless/media:z
 Volume=/mnt/data/personal/paperless/export:/usr/src/paperless/export:z
 Volume=/mnt/data/personal/paperless/consume:/usr/src/paperless/consume:z
-Volume=/etc/localtime:/etc/localtime:ro
 
 Environment=TZ=Europe/Madrid
 Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
