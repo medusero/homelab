@@ -31,5 +31,10 @@ Memory=1G
 After=paperless-redis.service
 Requires=paperless-redis.service
 
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
 [Install]
 WantedBy=default.target

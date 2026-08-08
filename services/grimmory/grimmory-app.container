@@ -32,5 +32,10 @@ Memory=1G
 After=grimmory-db.service
 Requires=grimmory-db.service
 
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
 [Install]
 WantedBy=default.target

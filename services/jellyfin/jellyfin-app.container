@@ -23,5 +23,10 @@ HealthRetries=3
 HealthStartPeriod=30s
 Memory=8G
 
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
 [Install]
 WantedBy=default.target

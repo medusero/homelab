@@ -27,5 +27,10 @@ HealthStartPeriod=30s
 [Unit]
 After=network-online.target
 
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
 [Install]
 WantedBy=default.target

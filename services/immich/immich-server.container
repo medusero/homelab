@@ -35,5 +35,10 @@ Memory=2G
 After=immich-db.service immich-redis.service
 Requires=immich-db.service immich-redis.service
 
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
 [Install]
 WantedBy=default.target
