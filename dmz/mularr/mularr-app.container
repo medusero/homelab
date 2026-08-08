@@ -25,9 +25,12 @@ HealthCmd=node -e "require('http').get('http://localhost:8940/',r=>process.exit(
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
+MemoryMax=512M
 
 [Service]
-MemoryMax=512M
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
 
 [Install]
 WantedBy=default.target
