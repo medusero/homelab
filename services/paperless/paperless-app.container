@@ -13,6 +13,7 @@ Volume=/etc/localtime:/etc/localtime:ro
 Environment=TZ=Europe/Madrid
 Environment=PAPERLESS_TIME_ZONE=Europe/Madrid
 Environment=PAPERLESS_OCR_LANGUAGE=spa
+Environment=PAPERLESS_EMAIL_TASK_CRON="disable"
 EnvironmentFile=%h/Homelab/secrets/paperless
 Environment=PAPERLESS_REDIS=redis://127.0.0.1:6379/0
 
