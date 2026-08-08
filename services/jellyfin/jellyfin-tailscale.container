@@ -24,8 +24,10 @@ HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
 
-[Service]
+[Unit]
 After=network-online.target
+
+[Service]
 Restart=on-failure
 RestartSec=10
 TimeoutStartSec=180
