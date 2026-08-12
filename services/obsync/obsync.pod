@@ -1,5 +1,0 @@
-[Pod]
-PodName=obsync
-
-[Install]
-WantedBy=default.target
