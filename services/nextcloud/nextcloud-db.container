@@ -17,7 +17,7 @@ AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
 HealthCmd=mariadb-admin ping -h localhost
 HealthInterval=10s
 HealthRetries=5
-Memory=512M
+Memory=1536M
 
 [Unit]
 After=nextcloud.pod
