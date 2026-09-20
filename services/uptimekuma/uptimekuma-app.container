@@ -1,0 +1,25 @@
+[Container]
+NoNewPrivileges=true
+ContainerName=uptimekuma-app
+Image=docker.io/louislam/uptime-kuma:2
+Pod=uptimekuma.pod
+
+Volume=%h/Homelab/data/uptimekuma/data/uptimekuma-config:/app/data:z
+
+DropCapability=all
+
+AutoUpdate=registry
+
+HealthCmd=curl -sf http://127.0.0.1:3001/ping || exit 1
+HealthInterval=1m
+HealthRetries=3
+HealthStartPeriod=30s
+Memory=512M
+
+[Service]
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=180
+
+[Install]
+WantedBy=default.target

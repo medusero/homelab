@@ -1,0 +1,5 @@
+[Pod]
+PodName=uptimekuma
+
+[Install]
+WantedBy=default.target
