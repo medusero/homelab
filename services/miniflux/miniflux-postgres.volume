@@ -1,0 +1,5 @@
+[Volume]
+VolumeName=miniflux-postgres
+
+[Install]
+WantedBy=default.target
