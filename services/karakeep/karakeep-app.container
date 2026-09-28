@@ -8,6 +8,7 @@ Volume=%h/Homelab/data/karakeep/data/karakeep-config:/data:z
 EnvironmentFile=%h/Homelab/secrets/karakeep
 
 DropCapability=all
+AddCapability=CAP_CHOWN
 
 AutoUpdate=registry
 
