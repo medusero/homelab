@@ -6,7 +6,7 @@ Pod=grimmory.pod
 
 Volume=%h/Homelab/data/grimmory/data/grimmory-config:/app/data:z
 Volume=/mnt/data/media/media/books:/books:z
-Volume=%h/Homelab/downloads/bookdrop:/bookdrop:z
+Volume=%h/Homelab/downloads/bookdrop:/bookdrop
 
 Environment=USER_ID=1000
 Environment=GROUP_ID=1000
