@@ -21,7 +21,7 @@ AddCapability=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER CAP_SETUID CAP_SETGID
 
 AutoUpdate=registry
 
-HealthCmd=curl -sf http://127.0.0.1:8000/
+HealthCmd=/bin/sh -c 'curl -sf -o /dev/null -H "Host: ${PAPERLESS_URL#*://}" http://127.0.0.1:8000/'
 HealthInterval=1m
 HealthRetries=3
 HealthStartPeriod=30s
